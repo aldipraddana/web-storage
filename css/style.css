@@ -1,0 +1,337 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    font-family: Raleway;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    background: #4c7fb5;
+    padding: 8px;
+    color: white;
+}
+
+footer {
+    background: #4c7fb5;
+    padding: 16px;
+    color: white;
+}
+
+.mt {
+  margin-top: 7px !important;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container-header {
+  width: 1024px;
+  border-radius: 8px;
+  flex-grow: 1;
+  height: fit-content;
+}
+
+.wrapper .container {
+    width: 1024px;
+    border-radius: 8px;
+    margin: 16px;
+    background: #F8F9FA;
+    padding: 16px;
+    flex-grow: 1;
+    height: fit-content;
+}
+
+.kapital {
+  text-transform: capitalize;
+}
+
+.item {
+    border-radius: 16px;
+    margin-top: 16px;
+    padding: 12px 24px 12px 24px;
+    background: white;
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.item > .inner {
+  width: 63%;
+  margin-bottom: 20px;
+}
+
+.item > .area-button {
+  width: 37%;
+  display: flex;
+}
+
+.item > .inner h2 {
+    margin-bottom: unset;
+}
+
+.item > .inner p {
+    margin-top: 5px;
+}
+
+
+.form {
+    display: flex;
+    /* padding: 16px; */
+    flex-direction: column;
+    height: 300px;
+    border-radius: 16px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 4px;
+    font-size: 18;
+    font-weight: lighter;
+}
+
+.shadow {
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset, rgba(0, 0, 0, 0.1) 0px 0px 0px 1px !important;
+  border-radius: 7.2px;
+}
+
+input[type=checkbox] {
+  width: 20px;
+  height: 20px;
+}
+
+input[type=text],
+input[type=number],
+input[type=date] {
+    font-family: Raleway;
+    background: #F5F1FF;
+    border: 2px solid #c8c8c8;
+    border-radius: 8px;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.btn-submit {
+    width: fit-content;
+    border: none;
+    font-family: Raleway;
+    border-radius: 8px;
+    padding: 12px 24px;
+    border:2px solid #4c7fb5;
+    color: black;
+    font-size: 18px;
+    margin-top: auto;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+.btn {
+    height: 45px;
+    border: none;
+    font-family: Raleway;
+    border-radius: 8px;
+    padding: 10px 15px;
+    border:2px solid #4c7fb5;
+    color: black;
+    font-size: 18px;
+    float: right;
+    cursor: pointer;
+}
+
+.del {
+    height: 45px;
+    border: none;
+    font-family: Raleway;
+    border-radius: 8px;
+    padding: 10px 15px;
+    border:2px solid #d53535;
+    color: black;
+    font-size: 18px;
+    float: right;
+    cursor: pointer;
+}
+
+.del:hover{
+    background: #d53535;
+    color: white;
+}
+
+.btn-submit:hover{
+    background: #4c7fb5;
+    color: white;
+}
+
+.btn:hover{
+    background: #4c7fb5;
+    color: white;
+}
+
+input[type=text],
+input[type=date],
+.btn-submit:focus{
+    outline: none;
+}
+
+
+.text-center {
+    text-align: center;
+}
+
+.form-title {
+    margin: auto 0;
+}
+
+.check-button {
+    margin-left: auto;
+    cursor: pointer;
+    /* border: none; */
+}
+
+.undo-button:hover {
+    background: url('../assets/undo-ouline.svg');
+    background-size: contain;
+}
+
+.check-button:focus, .trash-button {
+    outline: none;
+}
+
+/* toast area */
+#toast {
+    visibility: hidden;
+    max-width: 50px;
+    height: 50px;
+    margin: auto;
+    background-color: #4c7fb5;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    position: fixed;
+    z-index: 1;
+    left: 0;right:0;
+    bottom: 30px;
+    font-size: 17px;
+    white-space: nowrap;
+}
+#toast #img{
+	width: 50px;
+	height: 50px;
+  float: left;
+  padding-top: 16px;
+  padding-bottom: 16px;
+  box-sizing: border-box;
+  background-color: #4c7fb5;
+  color: #fff;
+}
+#toast #desc{
+    color: #fff;
+    padding: 16px;
+    overflow: hidden;
+	white-space: nowrap;
+}
+
+#toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, expand 0.5s 0.5s,stay 3s 1s, shrink 0.5s 2s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, expand 0.5s 0.5s,stay 2.5s 1s, shrink 0.5s 4s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes expand {
+    from {min-width: 50px}
+    to {min-width: 350px}
+}
+
+@keyframes expand {
+    from {min-width: 50px}
+    to {min-width: 350px}
+}
+@-webkit-keyframes stay {
+    from {min-width: 350px}
+    to {min-width: 350px}
+}
+
+@keyframes stay {
+    from {min-width: 350px}
+    to {min-width: 350px}
+}
+@-webkit-keyframes shrink {
+    from {min-width: 350px;}
+    to {min-width: 50px;}
+}
+
+@keyframes shrink {
+    from {min-width: 350px;}
+    to {min-width: 50px;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 60px; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 60px; opacity: 0;}
+}
+/* end toast area */
+
+@media only screen and (max-width: 1024px) {
+    .wrapper {
+        margin: 0;
+    }
+
+    .wrapper .container {
+        width: 100%;
+    }
+
+    .container-header {
+      width: 100%;
+    }
+
+    .list-item {
+        width: 100%;
+    }
+
+    .form {
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 500px) {
+    .inner {
+        width: 100% !important;
+    }
+    .item {
+      display: block;
+      padding-bottom: 70px;
+    }
+    .area-button {
+      width: 100% !important;
+    }
+}

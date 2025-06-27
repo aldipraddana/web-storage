@@ -40,8 +40,8 @@ function renderElement(judul, penulis, tahun, status, id) {
               </table>
             </div>
             <div class="area-button">
-             <button class="btn check-button" onclick="ehem_update(${id}, ${isCompleted}, this)" style="width:50%">${status}</button>
-             <button class="del" style="width:50%;margin-left:7px;" onclick="ehem(${id}, this)">Hapus</button>
+             <button class="btn check-button" onclick="ehem_update(${id}, ${isCompleted}, this)" style="width:65%">${status}</button>
+             <button class="del" style="width:29%;margin-left:7px;" onclick="ehem(${id}, this)">Hapus</button>
             </div>
           </div>`;
 }

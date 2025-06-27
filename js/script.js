@@ -28,7 +28,7 @@ function renderElement(judul, penulis, tahun, status, id) {
               <h2 class="kapital">${judul}</h2>
               <table style="margin-bottom:10px;margin-left:-5px;">
                 <tr>
-                  <td>Penulis</td>
+                  <td>Dari</td>
                   <td>:</td>
                   <td class="kapital"> ${penulis}</td>
                 </tr>

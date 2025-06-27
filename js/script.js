@@ -18,7 +18,7 @@ function save(master) {
 }
 
 function renderElement(judul, penulis, tahun, status, id) {
-  if (status == 'Belum Dibaca') {
+  if (status == 'Belum Dilakukan') {
     isCompleted = false
   }else {
     isCompleted = true
@@ -54,9 +54,9 @@ function getAllData() {
     if (master != null) {
       master.forEach((v,i)=>{
         if (v.isComplete) {
-          complated.push(renderElement(v.title, v.author, v.year, 'Belum Dibaca', v.id));
+          complated.push(renderElement(v.title, v.author, v.year, 'Belum Dilakukan', v.id));
         }else {
-          unComplated.push(renderElement(v.title, v.author, v.year, 'Selesai Dibaca', v.id));
+          unComplated.push(renderElement(v.title, v.author, v.year, 'Selesai Dilakukan', v.id));
         }
       })
       document.querySelector('.s').innerHTML=complated.join('');
@@ -89,11 +89,11 @@ function ehem_update(param, isCompleted, th) {
   let element_ = th.parentElement.parentElement;
 
   if (isCompleted) {
-    element_.querySelector('.btn').innerHTML = 'Belum Dibaca'
+    element_.querySelector('.btn').innerHTML = 'Belum Dilakukan'
     element_.querySelector('.btn').setAttribute('onclick', `ehem_update(${param}, false, this)`)
     document.querySelector('.s').append(element_)
   }else {
-    element_.querySelector('.btn').innerHTML = 'Selesai Dibaca'
+    element_.querySelector('.btn').innerHTML = 'Selesai Dilakukan'
     element_.querySelector('.btn').setAttribute('onclick', `ehem_update(${param}, true, this)`)
     document.querySelector('.bs').append(element_)
   }
@@ -128,14 +128,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const judul = document.getElementById('judul').value
       const penulis = document.getElementById('penulis').value
       const tahun = document.getElementById('tahun').value
-      const selesaiDibaca = document.getElementById('check').checked
+      const selesaiDilakukan = document.getElementById('check').checked
 
       let newObeject = {
         id: +new Date(),
         title: judul,
         author: penulis,
         year: tahun,
-        isComplete: selesaiDibaca,
+        isComplete: selesaiDilakukan,
       }
 
       if (isStorageExist()) {
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
           save(master_before)
         }
       }
-      let newElement = renderElement(newObeject.title, newObeject.author, newObeject.year, newObeject.isComplete ? 'Belum Dibaca' : 'Selesai Dibaca', newObeject.id)
+      let newElement = renderElement(newObeject.title, newObeject.author, newObeject.year, newObeject.isComplete ? 'Belum Dilakukan' : 'Selesai Dilakukan', newObeject.id)
       newElement = stringToHTML(newElement);
       console.log(newElement);
       if (newObeject.isComplete) {
